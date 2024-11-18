@@ -1,0 +1,773 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+html{
+    scroll-behavior: smooth;
+}
+.max-width{
+    max-width: 1300px;
+    padding: 0 80px;
+    margin: auto;
+    overflow: hidden;
+}
+.navbar{
+    position: fixed;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 5px;
+    margin-top: -15px;
+    z-index: 999;
+    font-family: "Poppins", sans-serif;
+    transition: all 0.3s ease;
+    background: black;
+}
+.navbar.sticky{
+    padding-bottom: 10px;
+    background: #001f4a;
+    opacity: 0.95;
+}
+.navbar .max-width{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar .logo{
+    width: 3px; /* Set the width */
+    height: auto; /* Maintain the aspect ratio */
+    margin-left: -50px;
+    display: flex; /* Enables flexbox */
+    justify-content: space-around; /* Even spacing between items */
+    align-items: left; /* Aligns items vertically in the center */
+}
+.navbar .logo .mainlogo{
+    margin-left: 30px;
+    margin-top: 30px;
+}
+.navbar .menu li{
+    list-style: none;
+    display: inline-block;
+}
+.navbar .menu li a{
+    display: block;
+    color: #fff;
+    font-size: 20px;
+    font-family: "Jost", serif;
+    font-weight: bold;
+    margin-left: 25px;
+    margin-right: -5px;
+    transition: color 0.3s ease;
+}
+.navbar .menu li a:hover{
+    color: grey;
+}
+.navbar.sticky .menu li a:hover{
+    color: #fff;
+}
+.menu-btn{
+    color: #fff;
+    font-size: 23px;
+    cursor: pointer;
+    display: none;
+    font-family: "PT Sans", sans-serif;
+}
+.scroll-up-btn{
+    position: fixed;
+    height: 45px;
+    width: 42px;
+    background: grey;
+    right: 30px;
+    bottom: 10px;
+    text-align: center;
+    line-height: 45px;
+    color: white;
+    z-index: 999;
+    font-size: 30px;
+    border-radius: 6px;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+.scroll-up-btn.show{
+    bottom: 30px;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.home{
+    display: flex;
+    height: 100vh;
+    color: #fff;
+}
+.home::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 600px;
+    background-image: url('images/images3.jpg');
+    background-height: 100vh;
+    font-family: "PT Sans", sans-serif;
+    filter: brightness(0.3);
+    z-index: -1;
+}
+.home .max-width{
+    margin: auto 0 auto 40px;
+}
+.home .home-content .text-1{
+    font-size: 27px;
+
+}
+.home .home-content .text-2{
+    font-size: 70px;
+    font-weight: 600;
+    margin-left: -3px;
+    font-family: "PT Sans", sans-serif;
+
+}
+.home .home-content .text-3{
+    font-size: 30px;
+    font-weight: bold;
+    margin: 5px 0;
+    padding: 11px 0px;
+    margin-top: 20px;
+    background: none;
+    color: white;
+}
+.home .home-content .text-3 span{
+    color: white;
+    font-weight: 500px;
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 35px;
+}
+
+.home .home-content a {
+    display: inline-block;
+    background: white;
+    color: #001f4a;
+    font-size: 22px;
+    font-weight: 550;
+    font-family: "Jost", sans-serif;
+    padding: 11px 32px;
+    margin-top: 20px;
+    border-radius: 16px;
+    border: 2px solid white;
+    position: relative; /* To allow for pseudo-element positioning */
+    overflow: hidden; /* Ensures hover effects don’t overflow the button */
+    z-index: 1;
+    transition: color 0.3s ease, background 0.3s ease; /* Smooth color and background transitions */
+}
+
+.home .home-content a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%; /* Start off-screen */
+    width: 100%;
+    height: 100%;
+    background: #001f4a;
+    z-index: -1; /* Ensure this stays behind the text */
+    transition: left 0.4s ease; /* Smooth transition for hover effect */
+}
+
+.home .home-content a:hover::before {
+    left: 0; /* Slide the background in from left to right */
+}
+
+.home .home-content a:hover {
+    color: white; /* Text color changes on hover */
+}
+.glitch {
+    position: relative;
+    color: white;
+    font-size: 48px;
+    text-transform: uppercase;
+    animation: glitch 1s infinite;
+}
+.glitch::before, .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: red;
+    z-index: -1;
+    animation: glitch 1s infinite;
+}
+.glitch::after {
+    color: blue;
+    z-index: -2;
+}
+section{
+    padding: 100px 0;
+}
+.about, .services, .about2, .contact, footer{
+    font-family: "Jost", sans-serif;
+}
+section .title{
+    position: relative;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 60px;
+    padding-bottom: 20px;
+}
+section .title::before{
+    content: "";
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    width: 210px;
+    height: 3px;
+    background: black;
+    transform: translateX(-50%);
+}
+section .title::after{
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    font-size: 20px;
+    color: grey;
+    padding: 5px;
+    background: white;
+    transform: translateX(-50%);
+}
+.about .title::after{
+    content: "Who we are";
+    font-family: 'orbitron', sans-serif;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+.about .about-content, .about2 .about-content2, .services .serv-content, .contact .contact-content{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+.about .about-content .left{
+    width: 45%;
+}
+.about .about-content .left img{
+    height: 400px;
+    width: 400px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+.about .about-content .right{
+    width: 55%;
+}
+.about .about-content .right .text{
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.about .about-content .right .text span{
+    color: grey;
+}
+.about .about-content .right p{
+    text-align: justify;
+}
+.about .about-content .right a{
+    display: inline-block;
+    background: grey;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 10px 30px;
+    margin-top: 20px;
+    border-radius: 6px;
+    border: 2px solid grey;
+    transition: all 0.3s ease;
+}
+.about .about-content .right a:hover{
+    color: grey;
+    background: white;
+}
+.services{
+    color: white;
+}
+.services{
+    background-image: url('images/images2.jpg');
+}
+
+.services .title::before{
+    background: white;
+}
+.services .title::after{
+    content: "What we do";
+    font-family: 'orbitron', sans-serif;
+    font-size: 15px;
+    background-color: none;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+.services .serv-content .card{
+    width: calc(33% - 20px);
+    background: white;
+    color: #00193b;
+    z-index: 1;
+    text-align: center;
+    border-radius: 6px;
+    padding: 20px 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.services .serv-content .card:hover{
+    background: #00193b;
+    color: white;
+    opacity: 0.8;
+}
+.services .serv-content .card .box{
+    transition: all 0.3s ease;
+}
+.services .serv-content .card:hover .box{
+    transform: scale(1.05);
+}
+.services .serv-content .card i{
+    font-size: 50px;
+    color: #00193b;
+    transition: all 0.3s ease;
+}
+.services .serv-content .card:hover i{
+    color: white;
+}
+.services .serv-content .card .text{
+    font-size: 30px;
+    font-weight: 500;
+    font-family: "Jost", sans-serif;
+    margin: 10px 0 7px 0;
+}
+.services .serv-content .card .box img{
+    width: 300px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+.about2 .title::after{
+    content: "Who he is";
+    font-family: 'orbitron', sans-serif;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+.about2 .about-content2{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+.about2 .about-content2 .left{
+    width: 45%;
+    box-sizing: border-box;
+}
+.about2 .about-content2 .left img{
+    height: 400px;
+    width: 400px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+.about2 .about-content2 .right{
+    width: 55%;
+}
+.about2 .about-content2 .right h3{
+    font-size: 25px;
+    color: black;
+    margin-bottom: 15px;
+}
+.about2 .about-content2 .right .text{
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.about2 .about-content2 .right .text span{
+    color: grey;
+}
+.about2 .about-content2 .right p{
+    text-align: justify;
+}
+.about2 .about-content2 .right a{
+    display: inline-block;
+    background: grey;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 10px 30px;
+    margin-top: 20px;
+    border-radius: 6px;
+    border: 2px solid grey;
+    transition: all 0.3s ease;
+}
+.about2 .about-content2 .right a:hover{
+    color: grey;
+    background: white;
+}
+
+.contact {
+    position: relative; /* Ensure the pseudo-element is positioned relative to this element */
+    background-image: url('images/images1.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    z-index: 1; /* Content stays on top */
+    padding: 50px; /* Optional padding for layout */
+    overflow: hidden; /* Prevents the pseudo-element from overflowing */
+}
+
+.contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85); /* Adjust darkness with opacity */
+    z-index: -1; /* Ensures the dark overlay stays behind content */
+}
+.contact .title::after{
+    content: "Get in touch";
+    font-family: 'orbitron', sans-serif;
+    font-size: 15px;
+    margin-bottom: 5px;
+    background: none;
+    color: white;
+}
+.contact .contact-content .column{
+    width: calc(50% - 30px);
+}
+.contact .contact-content .text{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.contact .contact-content .left p{
+    text-align: justify;
+}
+.contact .contact-content .left .icons{
+    margin: 10px 2px;
+}
+.contact .contact-content .left .icons .head2{
+    margin: 0 5px;
+}
+.contact .contact-content .row{
+    display: flex;
+    height: 65px;
+    align-items: center;
+}
+.contact .contact-content .row .info{
+    margin-left: 30px;
+}
+.contact .contact-content .row i{
+    font-size: 25px;
+    color: grey;
+}
+.contact .contact-content .info .head{
+    font-weight: 500px;
+}
+.contact .contact-content .info .subtitle{
+    color: white;
+}
+.contact .contact-content .info .subtitle a{
+    color: white;
+    text-decoration: none;
+}
+.contact .contact-content .info .subtitle a:hover{
+    color: lightblue;
+}
+.contact .right form .fields{
+    display: flex;
+}
+.contact .right form .field,
+.contact .right form .fields .field{
+    height: 45px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.contact .right form .textarea{
+    height: 80px;
+    width: 100%;
+}
+.contact .right form .name{
+    margin-right: 10px;
+}
+.contact .right form .email{
+    margin-left: 10px;
+}
+.contact .right form .field input, .contact .right form .textarea textarea{
+    height: 100%;
+    width: 100%;
+    border: 1px solid white;
+    border-radius: 10px;
+    outline: none;
+    padding: 0 15px;
+    font-size: 17px;
+    font-family: "PT Sans", sans-serif;
+}
+.contact .right form .textarea textarea{
+    padding-top: 10px;
+    resize: none;
+}
+.contact .right form .button{
+    height: 47px;
+    width: 170px;
+}
+.contact .right form .button button{
+    height: 100%;
+    width: 100%;
+    border: 2px solid grey;
+    background: #001f4a;
+    color: white;
+    font-size: 17px;
+    font-weight: 550;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.contact .right form .button button:hover{
+    color: #001f4a;
+    background: white;
+    font-weight: 600;
+}
+
+footer{
+    background: #111;
+    padding: 20px 23px;
+    color: #fff;
+    text-align: center;
+}
+footer span a{
+    color: grey;
+    text-decoration: none;
+}
+footer span a:hover{
+    text-decoration: underline;
+}
+
+.wave {
+    display: inline-block;
+}
+.wave span {
+    display: inline-block;
+    animation: wave 1.2s infinite;
+}
+.wave span:nth-child(1) {
+    animation-delay: 0s;
+}
+.wave span:nth-child(2) {
+    animation-delay: 0.1s;
+}
+.wave span:nth-child(3) {
+    animation-delay: 0.2s;
+}
+.wave span:nth-child(4) {
+    animation-delay: 0.3s;
+}
+.wave span:nth-child(5) {
+    animation-delay: 0.4s;
+}
+.wave span:nth-child(6) {
+    animation-delay: 0.4s;
+}
+.wave span:nth-child(7) {
+    animation-delay: 0.2s;
+}
+/* Add for all letters */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes slideshow {
+    0% { background-image: url('images/images1.jpg'); }
+    33% { background-image: url('images/images2.jpg'); }
+    66% { background-image: url('images/images3.jpg'); }
+    100% { background-image: url('images/images1.jpg'); }
+}
+
+
+@keyframes glitch {
+    0% {
+      clip-path: inset(0% 0 10% 0);
+      transform: translate(-2px, -2px);
+    }
+    25% {
+      clip-path: inset(20% 0 30% 0);
+      transform: translate(2px, 2px);
+    }
+    50% {
+      clip-path: inset(40% 0 50% 0);
+      transform: translate(-1px, 1px);
+    }
+    75% {
+      clip-path: inset(10% 0 20% 0);
+      transform: translate(1px, -1px);
+    }
+    100% {
+      clip-path: inset(0% 0 10% 0);
+      transform: translate(0);
+    }
+  }
+
+@keyframes wave {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+@media (max-width: 1300px){
+    .home .max-width{
+        margin-left: 0px;
+    }
+}
+
+@media (max-width: 1098px){
+    .about .about-content .left img{
+        height: 350px;
+        width: 350px;
+    }
+    .about2 .about-content2 .left img{
+        height: 350px;
+        width: 350px;
+    }
+}
+
+@media (max-width: 1098px){
+    .max-width{
+        padding: 0 23px;
+    }
+}
+
+@media (max-width: 1098px){
+    
+    .menu-btn{
+        display: block;
+        z-index: 999;
+    }
+    .navbar .menu{
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        left: -100%;
+        top: 0;
+        background:  #111;
+        text-align: center;
+        padding-top: 80px;
+        transition: all 0.3s ease;
+    }
+    .navbar .menu.active{
+        left: 0;
+    }
+    .menu-btn i.active:before{
+        content: "\f00d";
+    }
+    .navbar .menu li{
+        display: block;
+    }
+    .navbar .menu li a{
+        display: inline-block;
+        background-color: white;
+        padding: 5px 10px;
+        color: black;
+        border-radius: 8px;
+        margin: 25px 0;
+        font-size: 25px;
+    }
+    .navbar .menu li a:hover{
+        color: grey;
+    }
+    .home .home-content .text-2{
+        font-size: 70px;
+    }
+    .home .home-content .text-3{
+        font-size: 35px;
+    }
+    .home .home-content a{
+        font-size: 23px;
+        padding: 10px 30px;
+    }
+    .max-width{
+        max-width: 800px;
+    }
+    .about .about-content .column{
+        width: 100%;
+    }
+    .about .about-content .left{
+        display: flex;
+        justify-content: center;
+        margin: 0 auto 60px;
+    }
+    .about .about-content .left{
+        flex: 100%;
+    }
+    .services .serv-content .card{
+        width: calc(50% - 10px);
+        margin-bottom: 20px;
+    }
+    .about2 .about-content2 .column{
+        width: 100%;
+    }
+    .about2 .about-content2 .left{
+        display: flex;
+        justify-content: center;
+        margin: 0 auto 60px;
+    }
+    .about2 .about-content2 .left{
+        flex: 100%;
+    }
+    .contact .contact-content .column{
+        width: 100%;
+        margin-bottom: 35px;
+    }
+
+
+}
+@media (max-width: 660px){
+    .max-width{
+        padding: 0 23px;
+    }
+    .home .home-content .text-2{
+        font-size: 60px;
+    }
+    .home .home-content .text-3{
+        font-size: 30px;
+    }
+    .home .home-content a{
+        font-size: 20px;
+    }
+    .navbar .logo{
+        margin-left: 25px;
+    }
+    .services .serv-content .card{
+        width: 100%;
+    }
+}
+@media (max-width: 500px){
+    .home .home-content .text-2{
+        font-size: 50px;
+    }
+    .home .home-content .text-3{
+        font-size: 27px;
+    }
+}
