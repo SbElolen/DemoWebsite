@@ -42,6 +42,24 @@ $(document).ready(function() {
 
 });
 
+// Select all the cards
+const cards = document.querySelectorAll('.card');
+
+// Set up IntersectionObserver
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible'); // Add visible class when in view
+            observer.unobserve(entry.target); // Stop observing once the animation has been applied
+        }
+    });
+}, {
+    threshold: 0.2 // Adjust the visibility threshold (20% visible)
+});
+
+// Attach observer to each card
+cards.forEach(card => observer.observe(card));
+
 
 const waveText = document.querySelector('.wave');
       waveText.innerHTML = waveText.textContent
